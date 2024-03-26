@@ -73,6 +73,15 @@ class HomeController extends Controller
         //z - length/how many
     }
 
+     public function suggested()
+    {
+        // 推薦ユーザーを取得するロジック
+        $suggested_users = $this->getSuggestedUsers();
+        
+        // ビューを返します
+        return view('users.suggested')->with('suggested_users', $suggested_users);
+    }
+
     public function search(Request $request)
     {
         $users = $this->user->where('name', 'like', '%'.$request->search.'%')->get();

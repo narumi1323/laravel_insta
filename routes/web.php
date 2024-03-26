@@ -30,6 +30,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/people',[HomeController::class, 'search'])->name('search');
+    Route::get('/users/suggested', [HomeController::class, 'suggested'])->name('suggested');
+
     
     #Post
     Route::get('/post/create',[PostController::class, 'create'])->name('post.create');
